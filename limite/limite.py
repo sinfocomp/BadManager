@@ -19,18 +19,18 @@ cyanClaro="\033[1;36m"
 branco="\033[1;37m"
 fim="\033[0m"
 def deflimite():
-	usuario=input(verde + "Insira o nome do usuario para adicionar no limite: " + fim)
-	limite=str(input(verde + "Insira o limite para o usuario " + usuario + ": " + fim))
+	usuario=input(verde + "Ingresa nombre de usuario para limitar: " + fim)
+	limite=str(input(verde + "Limite para usuario logins: " + usuario + ": " + fim))
 	subprocess.call("sudo bash /etc/BadManager/limite/deflimite.sh " + usuario + " " + limite, shell=True)
 
 def remlimite():
 	subprocess.call("sudo bash /etc/BadManager/limite/remlimite.sh", shell=True)
 
 def gerlimite():
-	resposta = input(cyan + "Voce deseja iniciar o limitador em sessao screen? (y/n): " + fim)
+	resposta = input(cyan + "Desea iniciar el limitador en pantalla (y/n): " + fim)
 	if resposta == "y" or resposta == "Y":
 		try:
-			iniciar = input(cyan + "Você deseja que o limitador inicie automaticamente com o sistema? (y/n): " + fim)
+			iniciar = input(cyan + "Desea que el limitador al iniciar sistema? (y/n): " + fim)
 			if iniciar == "y" or iniciar == "Y":
 				subprocess.call("sudo echo '#!/bin/bash' > /etc/init.d/limite", shell=True)
 				subprocess.call("sudo echo 'bash /etc/BadManager/limite/limite.sh &' >> /etc/init.d/limite", shell=True)
@@ -48,5 +48,5 @@ def gerlimite():
 			print(azul + "Bye :P" + fim)
 			exit()
 	else:
-		print(vermelho + "Por favor digite uma opcao valida!" + fim)
+		print(vermelho + "Por favor ingese opcion valida!" + fim)
 		exit()
