@@ -2,17 +2,17 @@
 
 if [[ ! /proc/cpuinfo && ! $(which dmidecode) ]]
 then
-echo "Error Getting System Information."
+echo "Error Obteniendo informacion del sistema."
 exit 0
 fi
 if [ ! /etc/issue.net ]
 then
-echo "Error Getting System Information."
+echo "Error Obteniendo informacion del sistema."
 exit 0
 fi
 if [ ! /proc/meminfo ]
 then
-echo "Error Getting System Information."
+echo "Error Obteniendo informacion del sistema."
 exit 0
 fi
 
