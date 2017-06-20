@@ -22,7 +22,7 @@ fim="\033[0m"
 
 if [ ! -f /etc/limite/limite.txt ]
 then
-echo -e "$vermelho Você deve primeiro adicionar usuarios ao Limite!$fim"
+echo -e "$vermelho Debe agregar limite primero a algun usuario!$fim"
 exit 2
 else
 echo ""
@@ -44,7 +44,7 @@ Usuario: $usuarioo Conectados: $real$fim"
 if [ "$real" -gt "$limite" ]
 then
 echo -e "$vermelho
-Usuario: $usuarioo Sendo Desconectado por bater o limite!$fim"
+Usuario: $usuarioo Siendo desconectado por exeder limite!$fim"
 proc=$(ps x | grep ssh | grep -v grep | grep -v pts | grep $usuarioo | awk '{print $1}')
 kill -9 $proc
 fi
