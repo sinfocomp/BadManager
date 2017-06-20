@@ -23,7 +23,7 @@ fim="\033[0m"
 echo -e "$menu
 Instalador BadManager$fim"
 
-read -p "Aperte em Enter para proseguir a instalação... "
+read -p "Presione ENTER para instalar... "
 
 echo -e "$cyanClaro
 Instalando requisitos...$fim"
@@ -39,9 +39,9 @@ echo -e "$cyanClaro
 Baixando BadManager...$fim"
 if [ "$1" = "--output" ]
 then
-git clone https://github.com/BadGuy552/BadManager.git /etc/BadManager
+git clone https://github.com/sinfocomp/BadManager.git /etc/BadManager
 else
-git clone https://github.com/BadGuy552/BadManager.git /etc/BadManager 1>/dev/null 2>/dev/null
+git clone https://github.com/sinfocomp/BadManager.git /etc/BadManager 1>/dev/null 2>/dev/null
 fi
 
 echo -e "$cyanClaro
@@ -52,6 +52,6 @@ chmod a+x /etc/BadManager/*
 chmod a+x /etc/BadManager/limite/limite.sh
 
 echo -e "$verde Instalação Completa! $fim"
-echo -e "Para executar o BadManager digite $amarelo iniciar$fim em seu Terminal."
+echo -e "Para ejecutar escriba $amarelo iniciar$fim en su Terminal."
 exit 1
 
