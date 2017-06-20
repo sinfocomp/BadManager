@@ -13,7 +13,7 @@ verdeClaro="\033[1;32m"
 if [[ "$1" && "$2" ]]
 then
 echo "$usuario $limite" >> /etc/limite/limite.txt
-echo -e "$verde Usuario $usuario foi adicionado ao limite com Sucesso!$fim"
+echo -e "$verde Usuario $usuario limite aplicado!$fim"
 else
 echo Erro
 exit 2
