@@ -24,32 +24,32 @@ fim="\033[0m"
 if [ ! -f /etc/limite/limite.txt ]
 then
 echo -e "$vermelho
-Você deve primeiro Adicionar um limite a algum usuario para poder mudar o mesmo!$fim"
+Debe agregar un usuario antes de poder modificarlo!$fim"
 exit 2
 else
 echo ""
 fi
 echo -e "$menu
-Mudar Limite do usuario:$fim"
+Cambiar limite de usuario:$fim"
 
 usuario=$(cat /etc/limite/limite.txt | awk '{print $1" Limite: "$2}')
 
 echo "$usuario"
-read -p "Digite o nome do usuario para mudar o limite: " usuariolimite
+read -p "nombre de usuario para modificar limite: " usuariolimite
 if [ ! "$(cat /etc/limite/limite.txt | grep -w $usuariolimite)" ]
 then
 echo -e "$vermelho
-Por favor digite um nome de usuario valido!$fim"
+Por favor escriba un nombre de usuario valido!$fim"
 exit
 fi
 
-read -p "Digite o novo limite para o usuario $usuariolimite: " usuariolimite2
+read -p "Escriva nuevo limite $usuariolimite: " usuariolimite2
 
 
 
 novolimite="$(echo $usuariolimite $usuariolimite2 && cat /etc/limite/limite.txt | grep -wv "$usuariolimite")"
 echo "$novolimite" > /etc/limite/limite.txt
 echo -e "$cyan
-Limite mudado com sucesso!$fim"
+Limite cambiado!$fim"
 exit 1
 fi
