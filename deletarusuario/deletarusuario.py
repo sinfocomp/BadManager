@@ -21,7 +21,7 @@ branco="\033[1;37m"
 fim="\033[0m"
 
 def deletarusuario():
-	usuario = input(verde + "Digite o nome do usuario a ser deletado: " + fim)
+	usuario = input(verde + "Escribe el usuario a eliminar: " + fim)
 	subprocess.call("sudo userdel --force " + usuario, shell=True)
-	print(verde + "Usuario " + usuario + " Deletado com sucesso!")
+	print(verde + "Usuario " + usuario + " Eliminado!")
 	return True
