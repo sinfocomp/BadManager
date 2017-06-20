@@ -23,28 +23,28 @@ fim="\033[0m"
 if [ ! -f /etc/limite/limite.txt ]
 then
 echo -e "$vermelho
-Você deve primeiro Adicionar um limite a algum usuario para poder remover o mesmo!$fim"
+Debe poner limite a algun usuario antes de poder remover el limite!$fim"
 exit 2
 else
 echo ""
 fi
 echo -e "$menu
-Remover Usuarios do Limite:$fim"
+Remover limite de usuario:$fim"
 
 usuario=$(cat /etc/limite/limite.txt | awk '{print $1}')
 
 echo "$usuario"
-read -p "Digite o nome do usuario para ser removido, ou digite 'sair' para sair: " remover
+read -p "Escriba el nombre de usuario a remover o "salir" para salir: " remover
 if [ "$remover" = "sair" ]
 then
 exit 1
 else
 echo -e "$verde
-Removendo usuario $remover do limite...$fim"
+quitando limites $remover a usuario...$fim"
 
 novolimite="$(cat /etc/limite/limite.txt | grep -wv "$remover")"
 echo "$novolimite" > /etc/limite/limite.txt
 echo -e "$cyan
-Removido com sucesso!$fim"
+Removido!$fim"
 exit 1
 fi
