@@ -24,29 +24,29 @@ fim="\033[0m"
 
 def criarusuario():
 	subprocess.call("sudo groupadd badmanager 1>/dev/null 2>/dev/null", shell=True)
-	usuario = input(verde + "Insira um nome para o usuario: " + fim)
-	senha = input(verde + "Insira uma senha: " + fim)
-	validade = input(verde + "Deseja adicionar uma validade para o usuario " + usuario + "? (s/n) " + fim)
+	usuario = input(verde + "Ingresa nombre de usuario: " + fim)
+	senha = input(verde + "contrasena: " + fim)
+	validade = input(verde + "Quiere agregar fecha de expiracion " + usuario + "? (s/n) " + fim)
 	if validade == "s":
-		validade = input(verde + "Digite uma validade: " + fim)
+		validade = input(verde + "Escriba fecha: " + fim)
 		subprocess.call("sudo useradd -g badmanager -M -N -s /bin/false " + usuario + " -e " + validade, shell=True)
 		subprocess.call("sudo bash /etc/BadManager/criarusuario/pass.sh " + senha, shell=True)
 		sys.path.insert(0, "/etc/BadManager/")
 		from limite import limite
 		limite.deflimite()
 		ip = subprocess.call("echo Ip: $(ip addr | grep '/19' | awk '{print $4}')", shell=True)
-		print(cyan + "Usuario " + usuario + " Criado com sucesso!" + fim)
+		print(cyan + "Usuario " + usuario + " Creado!" + fim)
 		print(cyan + "Dados: " + fim)
 		print(cyan + "Usuario: " + usuario + fim)
-		print(cyan + "Senha: " + senha + fim)
-		print(cyan + "Validade: " + validade + fim)
+		print(cyan + "Contrasena: " + senha + fim)
+		print(cyan + "Caducidad: " + validade + fim)
 		return True
 	else:
 		subprocess.call("sudo useradd -M -N -s /bin/false " + usuario, shell=True)
 		subprocess.call("sudo bash /etc/BadManager/criarusuario/pass.sh " + senha + " " + usuario, shell=True)
 		ip = subprocess.call("echo Ip: $(ip addr | grep '/19' | awk '{print $4}')", shell=True)
-		print(cyan + "Usuario " + usuario + " Criado com sucesso!" + fim)
+		print(cyan + "Usuario " + usuario + " Creado!" + fim)
 		print(cyan + "Dados:\n" + fim)
 		print(cyan + "Usuario: " + usuario + fim)
-		print(cyan + "Senha: " + senha + fim)
+		print(cyan + "Contrasena: " + senha + fim)
 		return True
